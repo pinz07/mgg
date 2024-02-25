@@ -18,6 +18,11 @@ public class PC : MonoBehaviour
 
     void Update()
     {
+        ControllerPlayer();
+    }
+
+    private void ControllerPlayer()
+    {
         _moveVector = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W))
