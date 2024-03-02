@@ -8,9 +8,11 @@ public class EIA : MonoBehaviour
     public List<Transform> patrolPoints;
     public PC player;
     public float viewAngle;
+    public float damage = 30;
 
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayerNoticed;
+    private PlayerHp _playerHp;
     
     private void Start()
     {
@@ -21,6 +23,7 @@ public class EIA : MonoBehaviour
     private void InitComponentLinks()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _playerHp = player.GetComponent<PlayerHp>();
     }
 
     
@@ -28,7 +31,19 @@ public class EIA : MonoBehaviour
     {
         NoticePlayerUpdate();
         ChaseUpdate();
+        AttackUpdate();
         PatrolUpdate();
+    }
+
+    private void AttackUpdate()
+    {
+        if(_isPlayerNoticed)
+        {
+            if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance) 
+            {
+            _playerHp.DealDamage(damage * Time.deltaTime);
+            }
+        }
     }
     private void NoticePlayerUpdate() {
         var direction = player.transform.position - transform.position;
@@ -52,7 +67,7 @@ public class EIA : MonoBehaviour
     {
         if (!_isPlayerNoticed)
         {
-            if (_navMeshAgent.remainingDistance == 0)
+            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
                 PickNewPatrolPoint();
             }

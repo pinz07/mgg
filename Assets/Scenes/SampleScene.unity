@@ -487,6 +487,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267440874}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!224 &339569037 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6002337343541569126, guid: e684b841f7b92ed49b0bdceacb49c5e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1884757886951856508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &536400923
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +561,7 @@ MonoBehaviour:
   - {fileID: 536400924}
   player: {fileID: 188455229}
   viewAngle: 90
+  damage: 30
 --- !u!195 &618476466
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -569,7 +576,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2137,6 +2144,16 @@ PrefabInstance:
       propertyPath: RotationSpeed
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2290116031498374045, guid: e684b841f7b92ed49b0bdceacb49c5e3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788769717738108562, guid: e684b841f7b92ed49b0bdceacb49c5e3,
+        type: 3}
+      propertyPath: valueRectTransform
+      value: 
+      objectReference: {fileID: 339569037}
     - target: {fileID: 6465099626312507160, guid: e684b841f7b92ed49b0bdceacb49c5e3,
         type: 3}
       propertyPath: fireballPrefab

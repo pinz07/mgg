@@ -30,6 +30,7 @@ public class Firibal : MonoBehaviour
         if (enemyHealth != null)
         {
             enemyHealth.DealDamage(damage);
+
         }
     }
 
