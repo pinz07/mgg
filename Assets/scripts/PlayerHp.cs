@@ -7,6 +7,7 @@ public class PlayerHp : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject gameOverScreen;
+    public GameObject HealEffect;
 
     private float _maxValue;
 
@@ -26,6 +27,15 @@ public class PlayerHp : MonoBehaviour
         DrawHealthBar();
     }
 
+    public void AddHealth(float amount)
+    {
+        value += amount;
+        value = Mathf.Clamp(value, 0, _maxValue);
+        HealEffect.GetComponent<ParticleSystem>().Play();
+        
+        DrawHealthBar();
+    }
+
     private void DrawHealthBar()
     {
         valueRectTransform.anchorMax = new Vector2(value / _maxValue, 1);
@@ -38,4 +48,5 @@ public class PlayerHp : MonoBehaviour
         GetComponent<FiribalCas>().enabled = false;
         GetComponent<p>().enabled = false;
     }
+
 }
