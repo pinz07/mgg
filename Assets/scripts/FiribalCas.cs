@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FiribalCas : MonoBehaviour
 {
+    public float damage = 10;
+
     public Firibal fireballPrefab;
     public Transform FireballSourceTransform;
 
     
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(fireballPrefab, FireballSourceTransform.position, FireballSourceTransform.rotation);
+            var fireball = Instantiate(fireballPrefab, FireballSourceTransform.position, FireballSourceTransform.rotation);
+            fireball.damage = damage;
         }
     }
 }
